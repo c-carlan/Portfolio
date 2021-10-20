@@ -1,0 +1,20 @@
+install.packages("ggplot2")
+install.packages("palmerpenguins")
+library("ggplot2")
+library("palmerpenguins")
+View(penguins)
+
+ggplot(data=penguins)+
+  geom_point(mapping=aes(x=flipper_length_mm, y=body_mass_g, color=species,shape=species))+
+  labs(title = "Palmers Penguins: Body Mass vs Flipper Length", subtitle = "Sample of Three Penguin Species",
+  caption="Data collected by Dr. Kristen Gorman")
+
+ggsave("Three Penguin SPecies.png")
+
+ggplot(data=penguins)+
+  geom_point(mapping=aes(x=bill_length_mm, y=bill_depth_mm, color=species))+
+  facet_wrap(~species)+
+  labs(title = "Palmers Penguins: Bill Length vs Bill Depth", subtitle = "Sample of Three Penguin Species",
+       caption="Data collected by Dr. Kristen Gorman")
+
+ggsave("Bill_Correlation.jpeg")
